@@ -23,6 +23,6 @@ public class Friend {
     @Override
     public String toString() {
         String s = this.status ? "Online" : "Offline"; // ternary operator 
-        return this.name + " " + s; 
+        return this.username + " " + s; 
     }
 }

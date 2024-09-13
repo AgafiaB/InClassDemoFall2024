@@ -10,6 +10,7 @@ public class Favorite {
     public Favorite(String name, String address) throws MalformedURLException {
         this.name = name; 
         this.url = new URL(address);
+        this.date = new Date(); 
     }
 
     @Override
