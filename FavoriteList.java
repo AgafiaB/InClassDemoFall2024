@@ -1,13 +1,13 @@
 public class FavoriteList implements ListADT<Favorite> {
     private Favorite[] favorites;
     private int size;
-    private static final int maxSize = 50; // by making it static, 50 is stored only once
+    private static final int MAX_SIZE = 50; // by making it static, 50 is stored only once
 
 
     // create an empty list
     public FavoriteList() {
         this.size = 0;
-        this.favorites = new Favorite[maxSize]; // important to use the constant here (50 null spots open)
+        this.favorites = new Favorite[MAX_SIZE]; // important to use the constant here (50 null spots open)
     }
 
 @Override
@@ -17,7 +17,7 @@ public boolean isEmpty() {
 }
 
     public boolean isFull() {
-        return (this.size == maxSize); // USE THE CONSTANT
+        return (this.size == MAX_SIZE); // USE THE CONSTANT
     }
 
     @Override
@@ -62,8 +62,11 @@ public boolean isEmpty() {
     }
 
     @Override
-    public void remove(int index) {
+    public void remove(int index) throws ListException {
         // Exceptions
+        if (index < 0 || index >= this.getSize()) {
+            throw new ListException("Index out of range!"); 
+         }
 
         // remove element and shift elements to the right of the element one place to
         // the left
@@ -71,10 +74,17 @@ public boolean isEmpty() {
             this.favorites[i] = this.favorites[i + 1];
         }
 
+        this.size--; // user cannot access the extra last Favorite that still remains 
+        // SMOKE AND MIRRORS 
+
+
     }
 
     @Override
-    public Favorite get(int index) {
+    public Favorite get(int index) throws ListException {
+        if (index < 0 || index >= this.getSize()) {
+           throw new ListException("Index out of range!");
+        }
         return this.favorites[index]; 
     }
 
@@ -86,9 +96,11 @@ public boolean isEmpty() {
                 s = s + this.get(i).toString(); 
             } else {
                 s = s + this.get(i).toString() + ", ";
-            }
+            
         }
-        return "[" + s + "]"; 
     }
+    return "[" + s + "]"; 
     
+    
+    }
 }

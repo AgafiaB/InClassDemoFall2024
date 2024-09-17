@@ -11,7 +11,7 @@ public class TestFavoriteList {
         Random rand = new Random(); 
         FavoriteList favList= new FavoriteList(); 
 
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i < 5; i++) {
             try {
                 Favorite randomFav = new Favorite(generateUsername(), "https://www.unep.org/");
                 favList.add(i, randomFav);
@@ -29,8 +29,8 @@ public class TestFavoriteList {
         System.out.println(favList.get(0));
         System.out.println();
 
-        System.out.println("Removing index 1...");
-        favList.remove(1); 
+        System.out.println("Removing index 4...");
+        favList.remove(4); 
         System.out.println();
         
         System.out.println(favList.toString());
