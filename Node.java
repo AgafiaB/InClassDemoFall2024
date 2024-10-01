@@ -11,7 +11,7 @@ public class Node <E> {
         return this.item; // is this immutable??
     }
 
-    public void setNext(Node<E>) nextNode {
+    public void setNext(Node<E> nextNode) {
         this.nextNode = nextNode; 
     }
 
