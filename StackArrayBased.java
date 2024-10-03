@@ -27,7 +27,7 @@ public class StackArrayBased<Unicorn> implements StackADT<Unicorn>{
         }
 
         this.top++; 
-        this.item[this.top] = newItem; 
+        this.items[this.top] = newItem; 
     }
     
     // remove and return stack top
