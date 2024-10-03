@@ -52,6 +52,16 @@ public class StackReferenceBased<Unicorn> implements StackADT<Unicorn> {
         return size;
     }
 
+    public void reverseStack() {
+        StackReferenceBased<Unicorn> newStack = new StackReferenceBased<>(); 
+
+        while (!this.isEmpty()) {
+            newStack.push(this.pop()); 
+        }
+        
+        this.top = newStack.top; 
+    }
+
     @Override 
     public String toString() {
         String s = "[";
@@ -59,7 +69,7 @@ public class StackReferenceBased<Unicorn> implements StackADT<Unicorn> {
 
         while(currentNode != null) {
             s = s + currentNode.getItem().toString(); 
-            
+
             currentNode = currentNode.getNext(); 
             
             if (currentNode != null) {
