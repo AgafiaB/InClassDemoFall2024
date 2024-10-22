@@ -47,6 +47,7 @@ public class QueueArrayBased<Unicorn> implements QueueADT<Unicorn>{
         // 3. decrement size by 1
         this.size--; 
         // return retrieved item
+        return retrievedItem; 
     }
 
     @Override
